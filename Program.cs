@@ -1,4 +1,6 @@
-﻿namespace LibraySystem
+﻿using System.Data;
+
+namespace LibraySystem
 {
     internal class Program
     {
@@ -11,7 +13,7 @@
             string[] booktitles = new string[100];
             string[] bookISBNs = new string[100];
             string[] bookavailabilitystatus = new string[100];
-            bool availability = false;
+            bool[] availability = new bool[100];
             string[] borrowernames = new string[100];
             string[] bookauthors = new string[100];
             int LastbookIndextracker = -1;
@@ -56,25 +58,25 @@
                     case 1:
 
                  
-                        Console.Write("Enter the book title: ");
-            
-                        booktitle[LastbookIndextracker] = Console.ReadLine();
+                        Console.Write("Enter the book title ");
 
-                        Console.Write("Enter the author name: ");
-                        bookauthor[LastbookIndextracker ] = Console.ReadLine();
+                        booktitles[LastbookIndextracker] = Console.ReadLine();
+
+                        Console.Write("Enter the author name ");
+                        bookauthors[LastbookIndextracker ] = Console.ReadLine();
 
                         Console.Write("Enter the ISBN");
-                        ISBN string [LastbookIndextracker] = string .Parse(Console.ReadLine());
+                        bookISBNs [LastbookIndextracker] = Console.ReadLine();
 
-                        [LastbookIndex + 1] =  + [LastbookIndex + 1];
-
-
+                        bookISBNs[LastbookIndextracker ] = "id" +LastbookIndextracker + 1;
 
 
-                        Console.WriteLine("The book is Added sucssfully");
-                        Console.WriteLine("ISBN is: " + LastbookIndextracker + 1  ");
 
-                            LastbookIndextracker++;
+
+                        Console.WriteLine("The new book is Added sucssfully");
+                        Console.WriteLine("ISBN is: " + bookISBNs[LastbookIndextracker ]);
+
+                            LastbookIndextracker++ ;
 
 
                         break;
@@ -83,20 +85,58 @@
 
 
 
-                        Console.Write("Enter the book title: ");
-                        string booktitle = Console.ReadLine();
-                        Console.Write("Enter the author name: ");
-                        string bookauthor =(Console.ReadLine());
+                        Console.Write("Enter the borrower name ");
+                        string borrowername = (Console.ReadLine());
+
+                        Console.Write("Enter the book title or the ISBN ");
+                        string keybook =(Console.ReadLine());
 
 
+                        bool bookfounded = false;
+
+                        for (int i = 0; i < 100; i++)
+                        {
+                            if (keybook == booktitles[i] || keybook ==booktitles[i])
+                            {
+                                borrowernames[i] = borrowername;
+                                availability[i] = false;
+
+                                bookfounded = true;
+
+                                  
+
+                                }
+
+
+
+                                break;
+                            
+
+                        }
+
+                        
+                        if (bookfounded == false)
+                        {
+                            Console.WriteLine("sorry book not found");
+                        }
+                        else
+                        {
+                            Console.WriteLine(" the book is founded successful!");
+                           
+
+                        }
 
 
                         break;
 
+
                     case 3:
+
+
                         break;
 
                     case 4:
+
                         break;
 
                     case 5:
@@ -107,7 +147,7 @@
 
                     case 7:
 
-                        Exit = true;
+                      
                         break;
 
 
@@ -115,9 +155,11 @@
 
 
 
-                        Console.WriteLine("");
+                        
                 }
             }
         }
     }
 }
+
+        
