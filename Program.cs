@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.ComponentModel.Design;
+using System.Data;
 
 namespace LibraySystem
 {
@@ -82,7 +83,7 @@ namespace LibraySystem
 
                         break;
 
-                    case 2:   
+                    case 2:
 
                         Console.Write("Enter the book title or the ISBN ");
                         string keybook = (Console.ReadLine());
@@ -94,20 +95,20 @@ namespace LibraySystem
                         {
                             if (keybook == booktitles[i] || keybook == booktitles[i])
                             {
-                                borrowernames[i] = borrowername;
-                                
+                                borrowernames[i]= keybook;
+
 
                                 bookfounded = true;
-                              if ( availability[i] == true)
+                                if (availability[i] == true)
                                 {
                                     Console.Write("Enter the borrower name ");
                                     string borrowername = (Console.ReadLine());
-                                     availability[i] = false ;
+                                    availability[i] = false;
                                     Console.WriteLine("Book borrowed succeful");
-                                    
 
-                                    }
-                              else
+
+                                }
+                                else
                                 {
                                     Console.WriteLine("book borrowed already");
                                 }
@@ -164,6 +165,8 @@ namespace LibraySystem
                                     availability[i] = true;
                                     Console.WriteLine(" the book is returned successful!");
 
+                                    borrowernames[i] = "";
+
                                 }
 
                                 else
@@ -175,51 +178,75 @@ namespace LibraySystem
                             }
 
                         }
-                      if(bookFounded == false)
+                        if (bookFounded == false)
                         {
                             Console.WriteLine("sorry Book not found");
                         }
                         break;
-                       
 
-                            
-
-                        
-                            
-
-
-
-                        
-
-
-
-                 
 
                     case 4:
 
-                        break;
+
+                        Console.Write("Enter the book title or the ISBN ");
+                        string searchbook = Console.ReadLine();
+
+                        bool isbookFounded = false;
+
+                        for (int i = 0; i < 100; i++)
+                        {
+                            if (searchbook[] = booktitles[i])
+                            {
+                                Console.WriteLine("booktitle" + booktitles [i]);
+                                Console.WriteLine("bookauthor" + bookauthors[i]);
+                                Console.WriteLine("available" + availability[i]);
+
+                                bookFounded = true;
+                             
+
+
+
+                                {
+                                    if (bookFounded == false)
+
+                                        Console.WriteLine("the book not available");
+
+                                }
+                            }
+
+
+                        }
+
+                            break;
 
                     case 5:
-                        break;
 
-                    case 6:
-                        break;
-
-                    case 7:
-
-                      
-                        break;
+                        Console.WriteLine("the available book");
 
 
 
+                                break;
+
+                            case 6:
+                                break;
+
+                            case 7:
+
+
+                                break;
 
 
 
-                        
+
+
+
+
+                            }
+                        }
                 }
             }
         }
-    }
-}
+    
+
 
         
