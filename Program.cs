@@ -17,29 +17,40 @@ namespace LibraySystem
             bool[] availability = new bool[100];
             string[] borrowernames = new string[100];
             string[] bookauthors = new string[100];
-            int LastbookIndextracker = -1;
+            int Lastindex = 0;
 
             //seed data
-            booktitles[0] = "math";
+            booktitles[0] = "arabic";
             bookISBNs[0] = "1";
             bookauthors[0] = "Ahmed";
             borrowernames[0] = " ";
             availability[0] = true;
-            LastbookIndextracker++;
+            Lastindex++;
 
 
             booktitles[1] = "cats";
             bookISBNs[1] = "2";
-            borrowernames[1] = "asma";
+            borrowernames[1] ="Ali ";
             availability[1] = false;
-            LastbookIndextracker++;
+            Lastindex++;
+
+
+
+
+            booktitles[2] = "math";
+            bookISBNs[2] = "3";
+            borrowernames[0] = "Sara ";
+            availability[2] = false;
+            Lastindex++;
+
+
 
 
             bool exit = false;
 
 
 
-            while (true)
+            while (exit == false)
             {
                 Console.WriteLine("Welcome to the Libray System");
                 Console.WriteLine("1.Add NewBook");
@@ -63,21 +74,21 @@ namespace LibraySystem
 
                         Console.Write("Enter the book title ");
 
-                        booktitles[LastbookIndextracker] = Console.ReadLine();
+                        booktitles[Lastindex] = Console.ReadLine();
 
                         Console.Write("Enter the author name ");
-                        bookauthors[LastbookIndextracker] = Console.ReadLine();
+                        bookauthors[Lastindex] = Console.ReadLine();
 
                         Console.Write("Enter the ISBN");
-                        bookISBNs[LastbookIndextracker] = Console.ReadLine();
+                        bookISBNs[Lastindex] = Console.ReadLine();
 
-                        bookISBNs[LastbookIndextracker] = "id" + LastbookIndextracker + 1;
+                        bookISBNs[Lastindex] = "id" + Lastindex + 1;
 
 
 
 
                         Console.WriteLine("The new book is Added sucssfully");
-                        Console.WriteLine("ISBN is: " + bookISBNs[LastbookIndextracker]);
+                        Console.WriteLine("ISBN is: " + bookISBNs[Lastindex]);
 
 
 
@@ -91,7 +102,7 @@ namespace LibraySystem
 
                         bool bookfounded = false;
 
-                        for (int i = 0; i < 100; i++)
+                        for (int i = 0; i < Lastindex; i++)
                         {
                             if (keybook == booktitles[i] || keybook == booktitles[i])
                             {
@@ -145,7 +156,7 @@ namespace LibraySystem
 
                         bool bookFounded = false;
 
-                        for (int i = 0; i < 100; i++)
+                        for (int i = 0; i < Lastindex; i++)
                         {
                             if (ISBNs == bookISBNs[i])
                             {
@@ -188,7 +199,7 @@ namespace LibraySystem
 
                         bool isbookFounded = false;
 
-                        for (int i = 0; i < 100; i++)
+                        for (int i = 0; i < Lastindex; i++)
                         {
                             if (searchbook == booktitles[i])
                             {
@@ -222,7 +233,7 @@ namespace LibraySystem
 
                         bool BookAvailable = false;
 
-                        for (int i = 0; i < 100; i++)
+                        for (int i = 0; i < Lastindex; i++)
                         {
                             if (availability[i] == true)
 
@@ -252,14 +263,12 @@ namespace LibraySystem
                         Console.WriteLine("the second borrower");
                         string secondborrower = Console.ReadLine();
 
-                        Console.WriteLine("the ISBN");
-                        string theISBN = Console.ReadLine();
-
+                      
 
                         bool firstborrowerFound = false;
                         int firstborrowerindex = 0;
 
-                        for (int i = 0; i < 100; i++)
+                        for (int i = 0; i < Lastindex; i++)
                         {
                             if (firstborrower == borrowernames[i])
                             {
@@ -280,79 +289,90 @@ namespace LibraySystem
                         else
                         {
 
+
+                            bool secondBorrowerFound = false;
+
+                            int secondborrowerindex = 0;
+                            for (int i = 0; i < Lastindex; i++)
                             {
-                                bool secondBorrowerFound = false;
-                                int secondborrowerindex = 0;
-                                for (int i = 0; i < 100; i++)
+                                if (secondborrower == borrowernames[i])
                                 {
-                                    if (secondborrower == borrowernames[i])
-                                    {
-                                        secondborrowerindex = i;
+                                    secondborrowerindex = i;
 
-                                        secondBorrowerFound = true;
-                                        break;
-
-                                    }
-                                }
-                                if (secondBorrowerFound == false)
-                                {
-                                    Console.WriteLine("New borrower name not found");
-                                }
-                                else
-                                {
-
-
-
-
-                                    string temp = "";
-                                    temp = borrowernames[firstborrowerindex];
-
-                                    borrowernames[firstborrowerindex] = borrowernames[secondborrowerindex];
-                                    borrowernames[secondborrowerindex] = temp;
-
-
-
+                                    secondBorrowerFound = true;
                                     break;
-
-                                case 7:
-
-                                        if (exit = true)
-                                        {
-
-
-                                            Console.WriteLine("Thank you for using the Bank System, press any key");
-                                            Console.ReadLine();
-                                            Console.Clear();
-
-
-                                            break;
-
-                                            default:
-
-
-                                    Console.WriteLine("Invalid option.please try again");
-                                            break;
-
-
-
-
-
-
-
-                                        }
-                                    }
-
 
                                 }
                             }
+
+                            if (secondBorrowerFound == false)
+                            {
+                                Console.WriteLine("New borrower name not found");
+                            }
+                            else
+                            {
+
+
+
+
+                                string temp = "";
+                                temp = borrowernames[firstborrowerindex];
+
+                                borrowernames[firstborrowerindex] = borrowernames[secondborrowerindex];
+                                borrowernames[secondborrowerindex] = temp;
+
+                            }
                         }
+
+                        break;
+
+                    case 7:
+
+                        if (exit = true)
+                        {
+
+
+                            Console.WriteLine("Thank you for using the Bank System, press any key");
+                            Console.ReadLine();
+                            Console.Clear();
+                        }
+
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid option.please try again");
+                        break;
+
                 }
+
+
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+                Console.Clear();
             }
-        }
-    }
-}
-}
-}
+
+
+
+
+
+
+
+
+
+
+
+
+                }
+                                    }
+
+
+                                }
+                            
+                        
+               
+
+
+
 
 
 
