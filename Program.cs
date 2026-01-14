@@ -154,7 +154,7 @@ namespace LibraySystem
                                     lateFees[i] = 0;
 
                                     Console.WriteLine("Book borrowed successfully!");
-                                    Console.WriteLine("This book has been borrowed " + borrowCount[i] + " times"); // NEW
+                                    Console.WriteLine("This book has been borrowed " + borrowCount[i] + " times"); 
                                 }
                                 else
                                 {
@@ -297,6 +297,7 @@ namespace LibraySystem
 
                     case 6:
 
+
                         Console.WriteLine("the first borrower");
                         string firstborrower = Console.ReadLine();
 
@@ -367,6 +368,12 @@ namespace LibraySystem
 
 
                         break;
+
+
+
+
+
+
 
                     case 7:
 
